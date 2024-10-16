@@ -1,16 +1,17 @@
-import Block from 'main.js';
-
+//import Block from 'main.js';
+const SHA256 = require('crypto-js/sha256')
 class Blockchain{
-    constructor(blocks,difficulty){
+    constructor(difficulty){
         this.blocks = [this.createGenesis()];
+        this.difficulty = difficulty;
     }
 
     createGenesis(){
-        return new Block("01/01/2017","Genesis block", "0")) 
+        return new Block("01/01/2017","Genesis block", "0");
     }
 
     latestBlock(){
-        return this.chain[this.chain.length - 1]
+        return this.blocks[this.blocks.length - 1]
     }
 
     addBlock(newBlock){
@@ -37,3 +38,27 @@ class Blockchain{
         return true;
     }
 }
+class Block{
+    constructor(timestamp,data){
+        this.index = 0;
+        this.timestamp = timestamp;
+        this.data = data;
+        this.previousHash = "0";
+        this.hash = this.calculateHash();
+        this.nonce = 0;
+    }
+
+
+    calculateHash(){
+        return SHA256(this.data + this.previousHash + this.timestamp + this.nonce).toString()
+    }
+
+    mineBlock(difficulty){
+        //Get a string with number of 0 equal to difficulty
+/*         target = 
+        while(this.hash.substring(0,difficulty)!== target){
+            
+        } */
+    }
+}
+module.exports = { Blockchain, Block };

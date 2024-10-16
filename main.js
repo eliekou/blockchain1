@@ -1,26 +1,16 @@
 const SHA256 = require('crypto-js/sha256')
-
-class Block{
-    constructor(timestamp,data){
-        this.index = 0;
-        this.timestamp = timestamp;
-        this.data = data;
-        this.previousHash = "0";
-        this.hash = this.calculateHash();
-        this.nonce = 0;
-    }
-
-
-    calculateHash(){
-        return SHA256(this.data + this.previousHash + this.timestamp + this.nonce).toString()
-    }
-
-    mineBlock(difficulty){
-        //Get a string with number of 0 equal to difficulty
-        target = 
-        while(this.hash.substring(0,difficulty)!== target){
-            
-        }
-    }
-}
+const {Blockchain, Block}  =require('./blockchain');
+/* const Block = require('') */
 //For our hash function, we will borrow from crypto-js library and use their SHA256 hash
+
+
+//Main program
+
+let blockChain1 = new Blockchain(3);
+
+
+blockChain1.addBlock(new Block("17/02/1992","data1"))
+blockChain1.addBlock(new Block("19/04/2003","data2"))
+console.log(blockChain1.checkValid());
+console.log(JSON.stringify(blockChain1, null, 4));
+/* MediaSourceHandle.exports = block */
