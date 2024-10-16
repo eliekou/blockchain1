@@ -55,10 +55,13 @@ class Block{
 
     mineBlock(difficulty){
         //Get a string with number of 0 equal to difficulty
-/*         target = 
+        console.log("Start mining block")
+        const target = Array(difficulty+1).join("0");
         while(this.hash.substring(0,difficulty)!== target){
-            
-        } */
+            this.nonce++
+            this.hash = this.calculateHash()
+        }
+
     }
 }
 module.exports = { Blockchain, Block };

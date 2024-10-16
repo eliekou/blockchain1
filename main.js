@@ -6,11 +6,19 @@ const {Blockchain, Block}  =require('./blockchain');
 
 //Main program
 
-let blockChain1 = new Blockchain(3);
+let blockChain1 = new Blockchain(6);
+
+let block1 = new Block("17/02/1992","data1")
+block1.mineBlock(blockChain1.difficulty);
+blockChain1.addBlock(block1)
+console.log("Block 1 added")
+
+let block2 = new Block("19/04/2003","data2")
+block1.mineBlock(blockChain1.difficulty)
+blockChain1.addBlock(block2)
+console.log("Block 2 added")
 
 
-blockChain1.addBlock(new Block("17/02/1992","data1"))
-blockChain1.addBlock(new Block("19/04/2003","data2"))
 console.log(blockChain1.checkValid());
 console.log(JSON.stringify(blockChain1, null, 4));
 /* MediaSourceHandle.exports = block */
