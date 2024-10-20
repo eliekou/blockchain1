@@ -1,12 +1,14 @@
 const SHA256 = require('crypto-js/sha256')
 const {Blockchain, Block}  =require('./blockchain');
+const {HttpServer} = require('./server/server');
 /* const Block = require('') */
 //For our hash function, we will borrow from crypto-js library and use their SHA256 hash
 
 
 //Main program
 
-let blockChain1 = new Blockchain(6);
+
+let blockChain1 = new Blockchain(4);
 
 let block1 = new Block("17/02/1992","data1")
 block1.mineBlock(blockChain1.difficulty);
@@ -25,4 +27,9 @@ console.log("Block 2 added")
 
 console.log(blockChain1.checkValid());
 console.log(JSON.stringify(blockChain1, null, 4));
+
+
+let HttpServer1 = new HttpServer(blockChain1);
+
+HttpServer1.app.listen(8083);
 /* MediaSourceHandle.exports = block */

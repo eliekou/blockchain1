@@ -37,6 +37,10 @@ class Blockchain{
 
         return true;
     }
+
+    getAllBlocks(){
+        console.log(JSON.stringify(this, null, 4));
+    }
 }
 class Block{
     constructor(timestamp,data){
