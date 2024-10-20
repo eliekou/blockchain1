@@ -18,6 +18,10 @@ block1.mineBlock(blockChain1.difficulty)
 blockChain1.addBlock(block2)
 console.log("Block 2 added")
 
+let block3 = new Block("19/04/2003","data2")
+block1.mineBlock(blockChain1.difficulty)
+blockChain1.addBlock(block2)
+console.log("Block 2 added")
 
 console.log(blockChain1.checkValid());
 console.log(JSON.stringify(blockChain1, null, 4));
