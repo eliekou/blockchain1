@@ -16,8 +16,11 @@ class HttpServer{
 
     this.blockchain = blockchain;
 
+
     this.app.get('/blockchain/blocks', (req, res) => {
-        res.status(200).send(blockchain.getAllBlocks());
+        const blocks = blockchain.getAllBlocks();
+        //res.status(200).send(<p>{blockchain.getAllBlocks()}</p>);
+        res.json(blocks);
     });
 
 }
