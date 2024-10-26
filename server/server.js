@@ -17,10 +17,11 @@ class HttpServer{
     this.blockchain = blockchain;
 
 
-    this.app.get('/blockchain/blocks', (req, res) => {
+    this.app.get('', (req, res) => {
         const blocks = blockchain.getAllBlocks();
         //res.status(200).send(<p>{blockchain.getAllBlocks()}</p>);
-        res.json(blocks);
+        console.log("blockchain/blocks called",blocks);
+        res.send(blocks);
     });
 
 }
