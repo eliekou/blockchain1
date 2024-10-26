@@ -39,7 +39,7 @@ class Blockchain{
     }
 
     getAllBlocks(){
-        console.log(JSON.stringify(this, null, 4));
+        return JSON.stringify(this.blocks, null, 4);
     }
 }
 class Block{
