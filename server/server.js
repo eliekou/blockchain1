@@ -9,7 +9,6 @@ class HttpServer{
 
     constructor(blockchain){
 
-
     this.app = express();
     this.app.use(cors());
     this.app.use(express.json());
